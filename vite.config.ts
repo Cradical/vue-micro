@@ -7,11 +7,23 @@ import VueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    vueJsx(),
-    VueDevTools(),
-  ],
+  plugins: [vue(), vueJsx(), VueDevTools()],
+  build: {
+    lib: {
+      entry: 'src/main.ts',
+      name: 'vue-micro',
+      fileName: (format) => `vue-micro.${format}.ts`
+    },
+    rollupOptions: {
+      // Make sure to externalize dependencies that you don't want to bundle
+      external: ['vue'],
+      output: {
+        globals: {
+          vue: 'Vue'
+        }
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
