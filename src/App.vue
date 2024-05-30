@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { defineComponent } from 'vue'
+</script>
+
+<script lang="ts">
+export default defineComponent({
+  name: 'VueMicro'
+})
 </script>
 
 <template>

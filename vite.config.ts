@@ -11,7 +11,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: 'src/main.ts',
-      name: 'vue-micro',
+      name: 'VueMicro',
       fileName: (format) => `vue-micro.${format}.ts`
     },
     rollupOptions: {
